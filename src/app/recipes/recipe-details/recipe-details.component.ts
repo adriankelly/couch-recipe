@@ -5,13 +5,15 @@ import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'recipe-details',
-  templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.css']
+  templateUrl: './recipe-details.component.html'
 })
 
 export class RecipeDetailsComponent {
   @Input() recipe: Recipe;
 
-  constructor(private recipeService: RecipeService) { }
+  imageWidth: number = 500;
+  imageMargin: number = 2;
+
+  // constructor(private recipeService: RecipeService) { }
 
 }

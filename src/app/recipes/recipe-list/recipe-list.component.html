@@ -2,13 +2,16 @@
   <div class="col-md-5">
     <h2>Recipes</h2>
     <ul class="list-group">
-      <li class="list-group-item makeBlue"
+      <li class="list-group-item"
           role="button"
           *ngFor="let recipe of recipes"
           (click)="selectRecipe(recipe)"
           [class.active]="recipe === selectedRecipe">
           {{recipe.value.name}}
-          <span class="badge">{{recipe.value.favorites}}</span>
+
+          <span class="badge">
+            {{recipe.value.favorites}}
+          </span>
       </li>
     </ul>
   </div>

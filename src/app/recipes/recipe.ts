@@ -4,5 +4,11 @@ export class Recipe {
   value: {
     name: string;
     description: string;
+    ingredients: string[];
+    calories: string;
+    carbos: string;
+    fats: string;
+    favorites: number;
+    proteins: string;
   }
 }

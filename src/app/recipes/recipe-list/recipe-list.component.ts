@@ -5,9 +5,8 @@ import { RecipeDetailsComponent } from '../recipe-details/recipe-details.compone
 
 
 @Component({
-  selector: 'recipe-list',
+  selector: 'rr-recipe-list',
   templateUrl: './recipe-list.component.html',
-  styleUrls: ['./recipe-list.component.css'],
   providers: [RecipeService]
 })
 

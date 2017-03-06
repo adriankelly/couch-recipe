@@ -1,0 +1,24 @@
+<div *ngIf="recipe" class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="recipe.id">Recipe Details</h2>
+  </div>
+</div>
+<div *ngIf="recipe" class="row">
+  <div class="col-md-12">
+    <span>{{recipe.value.headline}}</span>
+    <img src="{{recipe.value.thumb}}" alt="" class="img-responsive">
+    <p>{{recipe.value.description}}</p>
+    <h3>Ingredients</h3>
+    <ul>
+      <li *ngFor="let ingredient of recipe.value.ingredients">{{ ingredient }}</li>      
+    </ul>
+    <h3>Nutritional Information</h3>
+    <ul>
+      <li>Calories: {{ recipe.value.calories }}</li>
+      <li>Carbohydrates: {{ recipe.value.carbos }}</li>
+      <li>Fats: {{ recipe.value.fats }}</li>
+      <li>Protein: {{ recipe.value.proteins }}</li>
+    </ul>
+
+  </div>
+</div>

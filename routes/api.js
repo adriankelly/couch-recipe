@@ -9,7 +9,7 @@ var recipe = nano.db.use('recipe');
 router.get('/recipe', function(req, res, next) {
   recipe.view('all_recipe', 'all_recipe', function(err, body, header) {
     if (!err) {
-      res.status(200).json(body);
+      res.status(200).json(body.rows);
     } else {
       console.log(err);
     }

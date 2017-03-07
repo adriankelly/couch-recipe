@@ -4,8 +4,9 @@ import { RecipeService } from '../recipe.service';
 
 
 @Component({
-  selector: 'recipe-details',
-  templateUrl: './recipe-details.component.html'
+  selector: 'rr-recipe-details',
+  moduleId: module.id,
+  templateUrl: 'recipe-details.component.html'
 })
 
 export class RecipeDetailsComponent {
@@ -13,7 +14,5 @@ export class RecipeDetailsComponent {
 
   imageWidth: number = 500;
   imageMargin: number = 2;
-
-  // constructor(private recipeService: RecipeService) { }
 
 }

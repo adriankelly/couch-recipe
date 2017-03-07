@@ -9,15 +9,17 @@
           [class.active]="recipe === selectedRecipe">
           {{recipe.value.name}}
 
-          <span class="badge">
-            {{recipe.value.favorites}}
+          <span>
+            <rr-star [rating]='recipe.value.rating'
+              (ratingClicked)='onRatingClicked($event)'></rr-star>
           </span>
+
       </li>
     </ul>
   </div>
   <div class="col-md-5 col-md-offset-2">
-    <recipe-details
+    <rr-recipe-details
       [recipe]="selectedRecipe">
-    </recipe-details>
+    </rr-recipe-details>
   </div>
 </div>

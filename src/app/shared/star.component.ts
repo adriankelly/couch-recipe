@@ -1,7 +1,7 @@
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'rr-star',
+  selector: 'cr-star',
   moduleId: module.id,
   templateUrl: 'star.component.html',
   styleUrls: ['star.component.css']

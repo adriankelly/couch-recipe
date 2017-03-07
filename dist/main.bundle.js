@@ -44,7 +44,7 @@ var RecipeService = (function () {
     return RecipeService;
     var _a;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/recipe.service.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/recipe.service.js.map
 
 /***/ }),
 
@@ -79,7 +79,7 @@ if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment *
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* enableProdMode */])();
 }
 __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */]);
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/main.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/main.js.map
 
 /***/ }),
 
@@ -111,7 +111,7 @@ var AppComponent = (function () {
     ], AppComponent);
     return AppComponent;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/app.component.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/app.component.js.map
 
 /***/ }),
 
@@ -168,7 +168,7 @@ var AppModule = (function () {
     ], AppModule);
     return AppModule;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/app.module.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/app.module.js.map
 
 /***/ }),
 
@@ -200,7 +200,7 @@ var LoginComponent = (function () {
     ], LoginComponent);
     return LoginComponent;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/login.component.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/login.component.js.map
 
 /***/ }),
 
@@ -233,7 +233,7 @@ var RecipeDetailsComponent = (function () {
     ], RecipeDetailsComponent.prototype, "recipe", void 0);
     RecipeDetailsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Component */])({
-            selector: 'rr-recipe-details',
+            selector: 'cr-recipe-details',
             template: __webpack_require__(479)
         }), 
         __metadata('design:paramtypes', [])
@@ -241,7 +241,7 @@ var RecipeDetailsComponent = (function () {
     return RecipeDetailsComponent;
     var _a;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/recipe-details.component.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/recipe-details.component.js.map
 
 /***/ }),
 
@@ -293,7 +293,7 @@ var RecipeListComponent = (function () {
     return RecipeListComponent;
     var _a;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/recipe-list.component.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/recipe-list.component.js.map
 
 /***/ }),
 
@@ -346,7 +346,7 @@ var RecipeModule = (function () {
     ], RecipeModule);
     return RecipeModule;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/recipe.module.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/recipe.module.js.map
 
 /***/ }),
 
@@ -360,7 +360,7 @@ var Recipe = (function () {
     }
     return Recipe;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/recipe.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/recipe.js.map
 
 /***/ }),
 
@@ -400,7 +400,7 @@ var SharedModule = (function () {
     ], SharedModule);
     return SharedModule;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/shared.module.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/shared.module.js.map
 
 /***/ }),
 
@@ -436,7 +436,7 @@ var StarComponent = (function () {
     ], StarComponent.prototype, "ratingClicked", void 0);
     StarComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Component */])({
-            selector: 'rr-star',
+            selector: 'cr-star',
             template: __webpack_require__(481),
             styles: [__webpack_require__(475)]
         }), 
@@ -445,7 +445,7 @@ var StarComponent = (function () {
     return StarComponent;
     var _a;
 }());
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/star.component.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/star.component.js.map
 
 /***/ }),
 
@@ -461,7 +461,7 @@ var StarComponent = (function () {
 var environment = {
     production: false
 };
-//# sourceMappingURL=/Users/adriankelly/Sites/recipe-reviews/src/environment.js.map
+//# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/environment.js.map
 
 /***/ }),
 
@@ -507,7 +507,7 @@ module.exports = "<div *ngIf=\"recipe\" class=\"row\">\n  <div class=\"col-md-12
 /***/ 480:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Recipes</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n          role=\"button\"\n          *ngFor=\"let recipe of recipes\"\n          (click)=\"selectRecipe(recipe)\"\n          [class.active]=\"recipe === selectedRecipe\">\n          {{recipe.value.name}}\n\n          <span>\n            <rr-star [rating]='recipe.value.rating'\n              (ratingClicked)='onRatingClicked($event)'></rr-star>\n          </span>\n\n      </li>\n    </ul>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <rr-recipe-details\n      [recipe]=\"selectedRecipe\">\n    </rr-recipe-details>\n  </div>\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Recipes</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n          role=\"button\"\n          *ngFor=\"let recipe of recipes\"\n          (click)=\"selectRecipe(recipe)\"\n          [class.active]=\"recipe === selectedRecipe\">\n          {{recipe.value.name}}\n\n          <span>\n            <cr-star [rating]='recipe.value.rating'\n              (ratingClicked)='onRatingClicked($event)'></cr-star>\n          </span>\n\n      </li>\n    </ul>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <cr-recipe-details\n      [recipe]=\"selectedRecipe\">\n    </cr-recipe-details>\n  </div>\n</div>"
 
 /***/ }),
 

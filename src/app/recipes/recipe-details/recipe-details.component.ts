@@ -4,7 +4,7 @@ import { RecipeService } from '../recipe.service';
 
 
 @Component({
-  selector: 'rr-recipe-details',
+  selector: 'cr-recipe-details',
   moduleId: module.id,
   templateUrl: 'recipe-details.component.html'
 })

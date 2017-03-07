@@ -10,16 +10,16 @@
           {{recipe.value.name}}
 
           <span>
-            <rr-star [rating]='recipe.value.rating'
-              (ratingClicked)='onRatingClicked($event)'></rr-star>
+            <cr-star [rating]='recipe.value.rating'
+              (ratingClicked)='onRatingClicked($event)'></cr-star>
           </span>
 
       </li>
     </ul>
   </div>
   <div class="col-md-5 col-md-offset-2">
-    <rr-recipe-details
+    <cr-recipe-details
       [recipe]="selectedRecipe">
-    </rr-recipe-details>
+    </cr-recipe-details>
   </div>
 </div>

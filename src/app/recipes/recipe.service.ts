@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe';
 import { Http, Response } from '@angular/http';
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
+
 
 @Injectable()
 export class RecipeService {
@@ -9,17 +13,15 @@ export class RecipeService {
 
   constructor(private http: Http) { }
 
-  getRecipes(): Promise<Recipe[]> {
+  getRecipes(): Observable<Recipe[]> {
     return this.http.get(this.recipesUrl)
-                .toPromise()
-                .then(response => response.json() as Recipe[])
+                .map((response: Response) => <Recipe[]> response.json())
                 .catch(this.handleError);
   }
   
-  private handleError (error: any) {
-    let errMsg = (error.message) ? error.message :
-    error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-    console.error(errMsg);
+  private handleError (error: Response) {
+    console.error(error);
+    return Observable.throw(error.json().error || 'Server error');
   }
 
 }

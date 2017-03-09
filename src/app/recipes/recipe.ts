@@ -1,5 +1,6 @@
 export class Recipe {
   id?: string;
+  rev?: string;
   key: string;
   value: {
     name: string;
@@ -8,7 +9,7 @@ export class Recipe {
     calories: string;
     carbos: string;
     fats: string;
-    favorites: number;
     proteins: string;
+    rating: number;
   }
 }

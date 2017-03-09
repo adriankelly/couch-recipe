@@ -7,21 +7,22 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
 import { RecipeModule } from './recipes/recipe.module';
+import { LoginModule } from './login/login.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    LoginModule,
+    RecipeModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login', pathMatch: 'full'}
-    ]),
-    RecipeModule
+    ])
   ],
   bootstrap: [AppComponent]
 })

@@ -3,8 +3,21 @@
         {{pageTitle}}
     </div>
     <div class="panel-body">
-        <div class="row" >
-            Login
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Login</h1>
+                <form name="loginForm" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email">
+                    </div>
+                    <button type="submit" class="btn btn-success" (click)="userLogin(); loginForm.reset()" [disabled]="!loginForm.form.valid">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>

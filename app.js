@@ -4,8 +4,8 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var router = express.Router();
 
-var index = require('./routes/index');
 var api = require('./routes/api');
 
 var app = express();
@@ -23,12 +23,14 @@ app.use(cookieParser());
 
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+app.use(express.static(distDir, { redirect: false }));
 
-
-
-app.use('/', index)
 app.use('/api', api)
+
+// Enable refresh to serve Angular directory
+app.get('/login', function (req, res) {
+  res.sendFile(__dirname + "/dist/");
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -47,8 +49,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-
-
 
 module.exports = app;

@@ -11,7 +11,9 @@
 
           <span>
             <cr-star [rating]='recipe.value.rating'
-              (ratingClicked)='onRatingClicked($event)'></cr-star>
+              (notify)='onNotify($event)'>
+            </cr-star>
+            <pre style="margin:15px 0;">Rate: <b>{{recipe.value.rating}}</b></pre>
           </span>
 
       </li>

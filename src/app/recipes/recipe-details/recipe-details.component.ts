@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Recipe } from '../recipe';
+import { IRecipe } from '../recipe';
 import { RecipeService } from '../recipe.service';
 
 
@@ -10,7 +10,7 @@ import { RecipeService } from '../recipe.service';
 })
 
 export class RecipeDetailsComponent {
-  @Input() recipe: Recipe;
+  @Input() recipe: IRecipe;
 
   imageWidth: number = 500;
   imageMargin: number = 2;

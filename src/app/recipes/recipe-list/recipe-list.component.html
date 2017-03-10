@@ -10,7 +10,8 @@
           {{recipe.value.name}}
 
           <span>
-            <cr-star [rating]='recipe.value.rating'
+            <cr-star [starRating]='recipe.value.rating'
+              (click)='updateStar(recipe)'
               (notify)='onNotify($event)'>
             </cr-star>
             <pre style="margin:15px 0;">Rate: <b>{{recipe.value.rating}}</b></pre>

@@ -28,7 +28,7 @@ app.use(express.static(distDir, { redirect: false }));
 app.use('/api', api)
 
 // Enable refresh to serve Angular directory
-app.get('/login', function (req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(__dirname + "/dist/");
 })
 

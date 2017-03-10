@@ -1,6 +1,6 @@
-export class Recipe {
-  id?: string;
-  rev?: string;
+export interface IRecipe {
+  id: string;
+  rev: string;
   key: string;
   value: {
     name: string;

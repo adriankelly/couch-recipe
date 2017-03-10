@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../recipe';
+import { IRecipe } from '../recipe';
 import { RecipeDetailsComponent } from '../recipe-details/recipe-details.component';
 import { RecipeService } from '../recipe.service';
 
@@ -9,27 +9,38 @@ import { RecipeService } from '../recipe.service';
 })
 
 export class RecipeListComponent implements OnInit {
-  recipes: Recipe[]
-  selectedRecipe: Recipe
+  recipes: IRecipe[]
+  selectedRecipe: IRecipe
   rating: number
-  // dependency injection
+
   constructor(private recipeService: RecipeService) { }
 
-  ngOnInit() {
+  ngOnInit() { this.getRecipeData() }
+
+  getRecipeData() {
     this.recipeService
     .getRecipes()
-    .subscribe((recipes: Recipe[]) => {
+    .subscribe((recipes: IRecipe[]) => {
       this.recipes = recipes.map((recipe) => {
         return recipe;
       });
     });
   }
 
-  selectRecipe(recipe: Recipe) {
+  selectRecipe(recipe: IRecipe) {
     this.selectedRecipe = recipe
   }
 
-  onNotify(newRating: number) {
-    this.rating = newRating;
+  onNotify(starIndex: number) {
+    this.rating = starIndex;
+  }
+
+  updateStar(recipe: IRecipe) {
+    recipe.value.rating = this.rating;
+    this.recipeService
+    .updateRating(recipe)
+    .subscribe(() => {
+      this.getRecipeData()
+    })
   }
 }

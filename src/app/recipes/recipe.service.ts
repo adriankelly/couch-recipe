@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Recipe } from './recipe';
+import { IRecipe } from './recipe';
 import { Http, Response, RequestOptions, Request, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -13,24 +13,21 @@ export class RecipeService {
 
   constructor(private http: Http) { }
 
-  getRecipes(): Observable<Recipe[]> {
+  getRecipes(): Observable<IRecipe[]> {
     return this.http.get(this.recipesUrl)
-                .map((response: Response) => <Recipe[]> response.json())
+                .map((response: Response) => <IRecipe[]> response.json())
                 .catch(this.handleError);
   }
   
-  updateRating(recipe: Recipe): Observable<Recipe[]> {
-        // console.log('updateRating ==>', recipe.value)
+  updateRating(recipe: IRecipe): Observable<IRecipe[]> {
         let bodyString = JSON.stringify(recipe.value);
         let headers      = new Headers({ 'Content-Type': 'application/json' });
         let options       = new RequestOptions({ headers: headers });
-
-    return this.http.put('http://localhost:5984' + `${this.recipesUrl}/${recipe.id}`, bodyString, options)
+        let url = 'http://localhost:3000' + `${this.recipesUrl}/${recipe.id}`;
+    return this.http.put(url, bodyString, options)
                              .map((res:Response) => res.json())
-
-                         .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+                            .catch(this.handleError);
   }
-
 
   private handleError (error: Response) {
     console.error(error);

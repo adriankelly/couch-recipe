@@ -10,13 +10,11 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 export class StarComponent {
   private ratingRange: number[] = [1, 2, 3, 4, 5]
 
-  @Input() rating: number
+  @Input() starRating: number
+
   @Output() notify: EventEmitter<number> = new EventEmitter<number>();
 
-  onClick(newRating: number) {
-    console.log('new Rating =>', newRating);
-    this.rating = newRating;
-    this.notify.emit(newRating);
+  onClick(starIndex: number) {
+    this.notify.emit(starIndex + 1);
   }
-
 }

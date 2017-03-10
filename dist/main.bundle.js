@@ -1,6 +1,6 @@
 webpackJsonp([1,4],{
 
-/***/ 304:
+/***/ 305:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -45,12 +45,12 @@ var LoginComponent = (function () {
 
 /***/ }),
 
-/***/ 305:
+/***/ 306:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(528);
@@ -86,13 +86,13 @@ var RecipeService = (function () {
             .catch(this.handleError);
     };
     RecipeService.prototype.updateRating = function (recipe) {
-        // console.log('updateRating ==>', recipe.value)
         var bodyString = JSON.stringify(recipe.value);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]({ 'Content-Type': 'application/json' });
         var options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["c" /* RequestOptions */]({ headers: headers });
-        return this.http.put('http://localhost:5984' + (this.recipesUrl + "/" + recipe.id), bodyString, options)
+        var url = 'http://localhost:3000' + (this.recipesUrl + "/" + recipe.id);
+        return this.http.put(url, bodyString, options)
             .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw(error.json().error || 'Server error'); });
+            .catch(this.handleError);
     };
     RecipeService.prototype.handleError = function (error) {
         console.error(error);
@@ -109,7 +109,7 @@ var RecipeService = (function () {
 
 /***/ }),
 
-/***/ 333:
+/***/ 334:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -118,12 +118,12 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 333;
+webpackEmptyContext.id = 334;
 
 
 /***/ }),
 
-/***/ 334:
+/***/ 335:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -182,10 +182,10 @@ var AppComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(126);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(281);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(282);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(187);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_component__ = __webpack_require__(451);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login_component__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__login_login_component__ = __webpack_require__(305);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__recipes_recipe_module__ = __webpack_require__(457);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__login_login_module__ = __webpack_require__(453);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
@@ -240,8 +240,8 @@ var AppModule = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(412);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_component__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_component__ = __webpack_require__(305);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -295,6 +295,7 @@ var User = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__recipe__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__recipe___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__recipe__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecipeDetailsComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -314,7 +315,7 @@ var RecipeDetailsComponent = (function () {
     }
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Input */])(), 
-        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__recipe__["a" /* Recipe */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__recipe__["a" /* Recipe */]) === 'function' && _a) || Object)
+        __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__recipe__["IRecipe"] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_1__recipe__["IRecipe"]) === 'function' && _a) || Object)
     ], RecipeDetailsComponent.prototype, "recipe", void 0);
     RecipeDetailsComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
@@ -335,7 +336,7 @@ var RecipeDetailsComponent = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__recipe_service__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__recipe_service__ = __webpack_require__(306);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecipeListComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -349,11 +350,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var RecipeListComponent = (function () {
-    // dependency injection
     function RecipeListComponent(recipeService) {
         this.recipeService = recipeService;
     }
-    RecipeListComponent.prototype.ngOnInit = function () {
+    RecipeListComponent.prototype.ngOnInit = function () { this.getRecipeData(); };
+    RecipeListComponent.prototype.getRecipeData = function () {
         var _this = this;
         this.recipeService
             .getRecipes()
@@ -366,8 +367,17 @@ var RecipeListComponent = (function () {
     RecipeListComponent.prototype.selectRecipe = function (recipe) {
         this.selectedRecipe = recipe;
     };
-    RecipeListComponent.prototype.onNotify = function (newRating) {
-        this.rating = newRating;
+    RecipeListComponent.prototype.onNotify = function (starIndex) {
+        this.rating = starIndex;
+    };
+    RecipeListComponent.prototype.updateStar = function (recipe) {
+        var _this = this;
+        recipe.value.rating = this.rating;
+        this.recipeService
+            .updateRating(recipe)
+            .subscribe(function () {
+            _this.getRecipeData();
+        });
     };
     RecipeListComponent = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Component */])({
@@ -388,10 +398,11 @@ var RecipeListComponent = (function () {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(187);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recipe_details_recipe_details_component__ = __webpack_require__(455);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__recipe_list_recipe_list_component__ = __webpack_require__(456);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__recipe_service__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(275);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__recipe_details_recipe_details_component__ = __webpack_require__(455);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__recipe_list_recipe_list_component__ = __webpack_require__(456);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__recipe_service__ = __webpack_require__(306);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecipeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -408,23 +419,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var RecipeModule = (function () {
     function RecipeModule() {
     }
     RecipeModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__recipe_details_recipe_details_component__["a" /* RecipeDetailsComponent */],
-                __WEBPACK_IMPORTED_MODULE_4__recipe_list_recipe_list_component__["a" /* RecipeListComponent */]
+                __WEBPACK_IMPORTED_MODULE_4__recipe_details_recipe_details_component__["a" /* RecipeDetailsComponent */],
+                __WEBPACK_IMPORTED_MODULE_5__recipe_list_recipe_list_component__["a" /* RecipeListComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* RouterModule */].forChild([
-                    { path: 'recipes', component: __WEBPACK_IMPORTED_MODULE_4__recipe_list_recipe_list_component__["a" /* RecipeListComponent */] }
+                    { path: 'recipes', component: __WEBPACK_IMPORTED_MODULE_5__recipe_list_recipe_list_component__["a" /* RecipeListComponent */] }
                 ]),
-                __WEBPACK_IMPORTED_MODULE_2__shared_shared_module__["a" /* SharedModule */]
+                __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
+                __WEBPACK_IMPORTED_MODULE_3__shared_shared_module__["a" /* SharedModule */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_5__recipe_service__["a" /* RecipeService */]
+                __WEBPACK_IMPORTED_MODULE_6__recipe_service__["a" /* RecipeService */]
             ]
         }), 
         __metadata('design:paramtypes', [])
@@ -436,15 +449,8 @@ var RecipeModule = (function () {
 /***/ }),
 
 /***/ 458:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Recipe; });
-var Recipe = (function () {
-    function Recipe() {
-    }
-    return Recipe;
-}());
 //# sourceMappingURL=/Users/adriankelly/Sites/couch-recipe/src/recipe.js.map
 
 /***/ }),
@@ -475,7 +481,9 @@ var SharedModule = (function () {
     SharedModule = __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["b" /* NgModule */])({
             declarations: [__WEBPACK_IMPORTED_MODULE_2__star_component__["a" /* StarComponent */]],
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* CommonModule */]],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* CommonModule */]
+            ],
             exports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_common__["h" /* CommonModule */],
                 __WEBPACK_IMPORTED_MODULE_2__star_component__["a" /* StarComponent */]
@@ -510,15 +518,13 @@ var StarComponent = (function () {
         this.ratingRange = [1, 2, 3, 4, 5];
         this.notify = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* EventEmitter */]();
     }
-    StarComponent.prototype.onClick = function (newRating) {
-        console.log('new Rating =>', newRating);
-        this.rating = newRating;
-        this.notify.emit(newRating);
+    StarComponent.prototype.onClick = function (starIndex) {
+        this.notify.emit(starIndex + 1);
     };
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["y" /* Input */])(), 
         __metadata('design:type', Number)
-    ], StarComponent.prototype, "rating", void 0);
+    ], StarComponent.prototype, "starRating", void 0);
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_3" /* Output */])(), 
         __metadata('design:type', (typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* EventEmitter */] !== 'undefined' && __WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* EventEmitter */]) === 'function' && _a) || Object)
@@ -614,21 +620,21 @@ module.exports = "<div *ngIf=\"recipe\" class=\"row\">\n  <div class=\"col-md-12
 /***/ 521:
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Recipes</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n          role=\"button\"\n          *ngFor=\"let recipe of recipes\"\n          (click)=\"selectRecipe(recipe)\"\n          [class.active]=\"recipe === selectedRecipe\">\n          {{recipe.value.name}}\n\n          <span>\n            <cr-star [rating]='recipe.value.rating'\n              (notify)='onNotify($event)'>\n            </cr-star>\n            <pre style=\"margin:15px 0;\">Rate: <b>{{recipe.value.rating}}</b></pre>\n          </span>\n\n      </li>\n    </ul>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <cr-recipe-details\n      [recipe]=\"selectedRecipe\">\n    </cr-recipe-details>\n  </div>\n</div>"
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-5\">\n    <h2>Recipes</h2>\n    <ul class=\"list-group\">\n      <li class=\"list-group-item\"\n          role=\"button\"\n          *ngFor=\"let recipe of recipes\"\n          (click)=\"selectRecipe(recipe)\"\n          [class.active]=\"recipe === selectedRecipe\">\n          {{recipe.value.name}}\n\n          <span>\n            <cr-star [starRating]='recipe.value.rating'\n              (click)='updateStar(recipe)'\n              (notify)='onNotify($event)'>\n            </cr-star>\n            <pre style=\"margin:15px 0;\">Rate: <b>{{recipe.value.rating}}</b></pre>\n          </span>\n\n      </li>\n    </ul>\n  </div>\n  <div class=\"col-md-5 col-md-offset-2\">\n    <cr-recipe-details\n      [recipe]=\"selectedRecipe\">\n    </cr-recipe-details>\n  </div>\n</div>"
 
 /***/ }),
 
 /***/ 522:
 /***/ (function(module, exports) {
 
-module.exports = "<div\n  [style.width.px] = \"starWidth\"\n  [title] = \"rating\">\n  <div style=\"width: 86px\">\n    <span class=\"glyphicon\"\n      [ngClass]=\"i < rating ? 'glyphicon-star' : 'glyphicon-star-empty'\"\n      *ngFor=\"let star of ratingRange; let i = index\"\n      (click) = \"onClick(i)\">\n    </span>\n  </div>\n</div>"
+module.exports = "<div>\n  <div style=\"width: 86px\">\n    <span class=\"glyphicon\"\n      [ngClass]=\"i < starRating ? 'glyphicon-star' : 'glyphicon-star-empty'\"\n      *ngFor=\"let star of ratingRange; let i = index\"\n      (click) = \"onClick(i)\">\n    </span>\n  </div>\n</div>"
 
 /***/ }),
 
 /***/ 545:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(334);
+module.exports = __webpack_require__(335);
 
 
 /***/ })

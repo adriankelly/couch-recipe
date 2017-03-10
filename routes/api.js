@@ -21,16 +21,14 @@ router.get('/recipe/:id', function(req, res) {
   })
 });
 
-router.put('/recipe', function(req, res) {
-  console.log('here')
-  // recipe.insert({_id: req.params._id, _rev: req.params._rev}, function(err, body) {
-  //     res.send(body);
-  //     if(!err) {
-  //       console.log(body);
-  //     } else {
-  //       console.log(err);
-  //     }
-  // })
+router.put('/recipe/:id', function(req, res) {
+  recipe.insert(req.body, function(err, body) {
+      if(!err) {
+        res.send({redirect: '/recipes'});
+      } else {
+        console.log(err);
+      }
+  })
 });
 
 module.exports = router;

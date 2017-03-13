@@ -13,7 +13,7 @@
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email">
+                        <input type="text" class="form-control" id="email" required [(ngModel)]="model.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
                     </div>
                     <button type="submit" class="btn btn-success" (click)="userLogin(); loginForm.reset()" [disabled]="!loginForm.form.valid">Submit</button>
                 </form>

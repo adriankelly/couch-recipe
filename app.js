@@ -31,9 +31,9 @@ app.use(express.static(distDir, { redirect: false }));
 app.use('/api', api)
 
 // Enable refresh to serve Angular directory
-app.get('/*', function (req, res) {
-  res.sendFile(__dirname + "/dist/");
-})
+// app.get('/*', function (req, res) {
+//   res.sendFile(__dirname + "/dist/");
+// })
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

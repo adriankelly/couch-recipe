@@ -1,2 +1,5 @@
-.crop { overflow: hidden; }
+.star-group {
+  display: inline-block;
+  width: 84px;
+}
 div { cursor: pointer; }

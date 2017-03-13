@@ -1,9 +1,7 @@
-<div>
-  <div style="width: 86px">
+  <div class="star-group">
     <span class="glyphicon"
       [ngClass]="i < starRating ? 'glyphicon-star' : 'glyphicon-star-empty'"
       *ngFor="let star of ratingRange; let i = index"
       (click) = "onClick(i)">
     </span>
   </div>
-</div>

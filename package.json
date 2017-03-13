@@ -6,7 +6,11 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "devstart": "nodemon ./bin/www"
+    "devstart": "nodemon ./bin/www",
+    "prodstart": "NODE_ENV=production node ./bin/www"
+  },
+  "engines": {
+    "node": "7.5.0"
   },
   "dependencies": {
     "@angular/common": "^2.4.0",

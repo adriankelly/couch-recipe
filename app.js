@@ -7,8 +7,11 @@ var bodyParser = require('body-parser');
 var router = express.Router();
 
 var api = require('./routes/api');
-
+var compression = require('compression');
 var app = express();
+
+// compress all requests 
+app.use(compression());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

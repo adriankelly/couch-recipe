@@ -2,11 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 // Connect to CouchDB
-var nano = require('nano')('http://localhost:5984');
+var nano = require('nano')('http://ec2-52-87-196-71.compute-1.amazonaws.com:5984/');
 var recipe = nano.db.use('recipe');
 
 router.get('/recipe', function(req, res) {
-  recipe.view('all_recipe', 'all_recipe', function(err, body, header) {
+  recipe.view('all_recipes', 'all', function(err, body, header) {
     if (!err) {
       res.status(200).json(body.rows);
     } else {

@@ -10,20 +10,9 @@ router.get('/recipe', function(req, res) {
   console.log('fetch recipe');
   recipe.view('all_recipes', 'all', function(err, body) {
     if (!err) {
-      body.rows.forEach(function(doc) {
-        console.log(doc.value);
-        res.status(200).json(body.rows);
-      });
+      res.json(body.rows);
     }
   });
-  // recipe.view('all_recipes', 'all', function(err, body, header) {
-  //   console.log('fetching');
-  //   if (!err) {
-  //     res.status(200).json(body.rows);
-  //   } else {
-  //     console.log(err);
-  //   }
-  // })
 });
 
 router.get('/recipe/:id', function(req, res) {

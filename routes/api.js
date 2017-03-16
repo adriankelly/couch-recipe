@@ -2,20 +2,27 @@ var express = require('express');
 var router = express.Router();
 
 // Connect to CouchDB
-var nano = require('nano')('http://ec2-52-87-196-71.compute-1.amazonaws.com:5984/');
+var nano = require('nano')('http://ec2-54-152-93-18.compute-1.amazonaws.com:5984/');
 // var nano = require('nano')('http://localhost:5984/');
 var recipe = nano.db.use('recipe');
 
 router.get('/recipe', function(req, res) {
   console.log('fetch recipe');
-  recipe.view('all_recipes', 'all', function(err, body, header) {
-    console.log('fetching');
+  recipe.view('all_recipes', 'all', function(err, body) {
     if (!err) {
-      res.status(200).json(body.rows);
-    } else {
-      console.log(err);
+      body.rows.forEach(function(doc) {
+        console.log(doc.value);
+      });
     }
-  })
+  });
+  // recipe.view('all_recipes', 'all', function(err, body, header) {
+  //   console.log('fetching');
+  //   if (!err) {
+  //     res.status(200).json(body.rows);
+  //   } else {
+  //     console.log(err);
+  //   }
+  // })
 });
 
 router.get('/recipe/:id', function(req, res) {

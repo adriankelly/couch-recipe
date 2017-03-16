@@ -12,6 +12,7 @@ router.get('/recipe', function(req, res) {
     if (!err) {
       body.rows.forEach(function(doc) {
         console.log(doc.value);
+        res.status(200).json(body.rows);
       });
     }
   });

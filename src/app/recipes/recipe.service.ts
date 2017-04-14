@@ -23,7 +23,7 @@ export class RecipeService {
         let bodyString = JSON.stringify(recipe.value);
         let headers      = new Headers({ 'Content-Type': 'application/json' });
         let options       = new RequestOptions({ headers: headers });
-        let url = 'http://35.185.14.52/' + `${this.recipesUrl}/${recipe.id}`;
+        let url = 'http://35.185.14.52' + `${this.recipesUrl}/${recipe.id}`;
     return this.http.put(url, bodyString, options)
                              .map((res:Response) => res.json())
                             .catch(this.handleError);
